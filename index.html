@@ -1037,9 +1037,7 @@ const products = [
     category: "Spices",
     emoji: "🌿",
     description: "Celery plant."
-  }
-
-];
+<script>
 
 let activeCategory = "All";
 
@@ -1048,99 +1046,131 @@ function money(n) {
 }
 
 function renderFilters() {
-  const categories = [
-    "All",
-    ...new Set(products.map(p => p.category))
-  ];
-
   const box = document.getElementById("filters");
 
-  box.innerHTML = categories.map(c => `
-    <button
-      class="filter ${c === activeCategory ? "active" : ""}"
-      onclick="setCategory('${c}')"
-    >
-      ${c}
-    </button>
-  `).join("");
-}
+  const categories = ["All"];
 
-function setCategory(category) {
-  activeCategory = category;
-  renderFilters();
-  renderProducts();
+  products.forEach(function(p) {
+    if (!categories.includes(p.category)) {
+      categories.push(p.category);
+    }
+  });
+
+  box.innerHTML = "";
+
+  categories.forEach(function(category) {
+    const button = document.createElement("button");
+
+    button.className = "filter";
+    if (category === activeCategory) {
+      button.className += " active";
+    }
+
+    button.textContent = category;
+
+    button.onclick = function() {
+      activeCategory = category;
+      renderFilters();
+      renderProducts();
+    };
+
+    box.appendChild(button);
+  });
 }
 
 function renderProducts() {
-  const query =
-    document.getElementById("search").value
-      .toLowerCase()
-      .trim();
+  const searchBox = document.getElementById("search");
+  const box = document.getElementById("products");
 
-  const filtered = products.filter(p => {
+  const query = searchBox.value.toLowerCase().trim();
+
+  const filtered = products.filter(function(p) {
+
     const categoryOK =
       activeCategory === "All" ||
       p.category === activeCategory;
 
     const searchOK =
       !query ||
-      `${p.name} ${p.category} ${p.description}`
-        .toLowerCase()
-        .includes(query);
+      (
+        p.name + " " +
+        p.category + " " +
+        p.description
+      ).toLowerCase().includes(query);
 
     return categoryOK && searchOK;
   });
 
-  const box = document.getElementById("products");
+  box.innerHTML = "";
 
-  if (!filtered.length) {
-    box.innerHTML = `
-      <div class="empty">
-        No seedlings found. Try another search.
-      </div>
-    `;
+  if (filtered.length === 0) {
+    box.innerHTML =
+      '<div class="empty">No seedlings found. Try another search.</div>';
     return;
   }
 
-  box.innerHTML = filtered.map(p => `
-    <article class="card">
-      <div class="emoji">${p.emoji}</div>
+  filtered.forEach(function(p) {
 
-      <div class="category">
-        ${p.category}
-      </div>
+    const card = document.createElement("article");
+    card.className = "card";
 
-      <h3>
-        ${p.name}
-      </h3>
+    const emoji = document.createElement("div");
+    emoji.className = "emoji";
+    emoji.textContent = p.emoji;
 
-      <div class="desc">
-        ${p.description}
-      </div>
+    const category = document.createElement("div");
+    category.className = "category";
+    category.textContent = p.category;
 
-      <div class="price">
-        ${money(p.price)}
-      </div>
+    const name = document.createElement("h3");
+    name.textContent = p.name;
 
-      <button
-        class="buy"
-        onclick="orderProduct(${p.id})"
-      >
-        Order on WhatsApp
-      </button>
-    </article>
-  `).join("");
+    const description = document.createElement("div");
+    description.className = "desc";
+    description.textContent = p.description;
+
+    const price = document.createElement("div");
+    price.className = "price";
+    price.textContent = money(p.price);
+
+    const button = document.createElement("button");
+    button.className = "buy";
+    button.textContent = "Order on WhatsApp";
+
+    button.onclick = function() {
+      orderProduct(p.id);
+    };
+
+    card.appendChild(emoji);
+    card.appendChild(category);
+    card.appendChild(name);
+    card.appendChild(description);
+    card.appendChild(price);
+    card.appendChild(button);
+
+    box.appendChild(card);
+  });
 }
 
 function orderProduct(id) {
-  const p = products.find(x => x.id === id);
+
+  const p = products.find(function(x) {
+    return x.id === id;
+  });
 
   const message = encodeURIComponent(
-    `Hello The Apple Garden, I want to order ${p.name} for ${money(p.price)}.`
+    "Hello The Apple Garden, I want to order " +
+    p.name +
+    " for " +
+    money(p.price) +
+    "."
   );
 
   window.open(
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    message,
     "_blank"
   );
 }
@@ -1148,10 +1178,8 @@ function orderProduct(id) {
 document
   .getElementById("search")
   .addEventListener("input", renderProducts);
-alert("APPLE GARDEN JAVASCRIPT IS WORKING");
+
 renderFilters();
 renderProducts();
-</script>
 
-</body>
-</html>
+</script>
