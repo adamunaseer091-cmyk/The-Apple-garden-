@@ -3,300 +3,167 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#1f6b3a">
-  <meta name="description" content="Apple Garden - Quality seedlings and fruit plants in Nigeria">
-  <title>Apple Garden | Seedling Store</title>
+  <title>The Apple Garden 🪴 | Seedlings & Plants</title>
 
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f6f8f4;
-      color: #17351f;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f8f3;
+      color: #17351d;
     }
 
     header {
-      background: linear-gradient(135deg, #174d2a, #2f7d46);
+      background: linear-gradient(135deg, #0c6b35, #198754);
       color: white;
-      padding: 18px 18px 24px;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      box-shadow: 0 3px 15px rgba(0,0,0,.15);
+      padding: 28px 16px 24px;
+      text-align: center;
     }
 
-    .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo {
-      width: 48px;
-      height: 48px;
-      background: white;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 27px;
-    }
-
-    .brand h1 {
-      font-size: 21px;
-    }
-
-    .brand small {
-      opacity: .85;
-    }
-
-    .cart {
-      background: white;
-      color: #174d2a;
-      border: 0;
-      border-radius: 25px;
-      padding: 10px 15px;
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    .hero {
-      max-width: 1100px;
-      margin: auto;
-      padding: 30px 18px 5px;
-    }
-
-    .hero h2 {
+    header h1 {
+      margin: 0 0 6px;
       font-size: 30px;
-      line-height: 1.15;
-      margin-bottom: 9px;
     }
 
-    .hero p {
-      opacity: .9;
-    }
-
-    .search-area {
-      max-width: 1100px;
-      margin: 20px auto 0;
-      padding: 0 18px;
+    header p {
+      margin: 0 0 16px;
     }
 
     .search {
-      width: 100%;
+      width: 94%;
+      max-width: 700px;
+      padding: 14px 18px;
       border: 0;
-      border-radius: 14px;
-      padding: 15px;
+      border-radius: 30px;
       font-size: 16px;
       outline: none;
     }
 
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 25px 18px 100px;
+    .wrap {
+      width: 94%;
+      max-width: 1200px;
+      margin: 22px auto 50px;
     }
 
-    .categories {
-      display: flex;
-      gap: 9px;
-      overflow-x: auto;
-      padding-bottom: 18px;
-    }
-
-    .category {
-      border: 1px solid #cdd8ce;
+    .contact {
       background: white;
-      border-radius: 25px;
-      padding: 10px 15px;
-      white-space: nowrap;
-      cursor: pointer;
+      padding: 14px;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      text-align: center;
     }
 
-    .category.active {
-      background: #1f6b3a;
+    .contact a {
+      color: #087f3d;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+
+    .filter {
+      border: 1px solid #16854a;
+      background: white;
+      color: #126735;
+      padding: 9px 15px;
+      border-radius: 22px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .filter.active {
+      background: #16854a;
       color: white;
-      border-color: #1f6b3a;
     }
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 16px;
     }
 
-    .product {
+    .card {
       background: white;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 4px 18px rgba(24,55,32,.08);
+      border-radius: 16px;
+      padding: 17px;
+      box-shadow: 0 3px 13px rgba(0,0,0,.07);
+      display: flex;
+      flex-direction: column;
     }
 
-    .product-image {
-      height: 170px;
-      background: linear-gradient(135deg, #dcebd9, #edf5e9);
-      display: grid;
-      place-items: center;
-      font-size: 65px;
+    .emoji {
+      font-size: 44px;
+      text-align: center;
     }
 
-    .product-info {
-      padding: 15px;
-    }
-
-    .product-info h3 {
+    .card h3 {
+      margin: 7px 0;
       font-size: 18px;
-      margin-bottom: 6px;
     }
 
-    .description {
-      color: #647166;
+    .category {
+      font-size: 12px;
+      color: #64806a;
+    }
+
+    .desc {
       font-size: 13px;
-      min-height: 38px;
-      margin-bottom: 10px;
+      color: #536458;
+      line-height: 1.45;
+      flex: 1;
     }
 
     .price {
-      color: #1f6b3a;
-      font-size: 19px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .add {
-      width: 100%;
-      border: 0;
-      border-radius: 11px;
-      padding: 12px;
-      background: #1f6b3a;
-      color: white;
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    .empty {
-      text-align: center;
-      padding: 40px 10px;
-      color: #667066;
-    }
-
-    .cart-panel {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.45);
-      z-index: 50;
-      display: none;
-      align-items: flex-end;
-    }
-
-    .cart-panel.show {
-      display: flex;
-    }
-
-    .cart-box {
-      background: white;
-      width: 100%;
-      max-height: 88vh;
-      overflow-y: auto;
-      border-radius: 24px 24px 0 0;
-      padding: 22px;
-    }
-
-    .cart-head {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 18px;
-    }
-
-    .close {
-      border: 0;
-      background: #eef2ee;
-      border-radius: 50%;
-      width: 38px;
-      height: 38px;
-      font-size: 18px;
-    }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 13px 0;
-      border-bottom: 1px solid #e7ebe7;
-    }
-
-    .qty button {
-      border: 0;
-      background: #e7efe8;
-      width: 30px;
-      height: 30px;
-      border-radius: 8px;
-    }
-
-    .checkout {
-      margin-top: 20px;
-    }
-
-    .checkout input {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #ccd5cd;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      font-size: 15px;
-    }
-
-    .total {
-      display: flex;
-      justify-content: space-between;
       font-size: 20px;
       font-weight: 800;
-      margin: 18px 0;
+      color: #08753a;
+      margin: 12px 0;
     }
 
-    .whatsapp {
+    button.buy {
       width: 100%;
       border: 0;
-      padding: 15px;
-      border-radius: 12px;
-      background: #1f9d55;
+      padding: 11px;
+      border-radius: 10px;
+      background: #0b7a3e;
       color: white;
-      font-weight: 800;
-      font-size: 16px;
+      cursor: pointer;
+      font-weight: 700;
     }
 
     footer {
-      background: #17351f;
+      background: #123d21;
       color: white;
-      padding: 28px 18px;
+      padding: 28px 16px;
       text-align: center;
     }
 
-    @media (min-width: 700px) {
-      .hero h2 {
-        font-size: 42px;
+    @media (max-width: 500px) {
+      .products {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 10px;
       }
 
-      .cart-panel {
-        align-items: center;
-        justify-content: center;
+      .card {
+        padding: 12px;
       }
 
-      .cart-box {
-        max-width: 550px;
-        border-radius: 24px;
+      .card h3 {
+        font-size: 15px;
+      }
+
+      .price {
+        font-size: 17px;
       }
     }
   </style>
@@ -305,367 +172,972 @@
 <body>
 
 <header>
-  <div class="top">
-    <div class="brand">
-      <div class="logo">🌱</div>
-      <div>
-        <h1>The Apple Garden</h1>
-        <small>Quality seedlings & fruit plants</small>
-      </div>
-    </div>
+  <h1>🌱 The Apple Garden 🪴</h1>
 
-    <button class="cart" onclick="openCart()">
-      🛒 Cart <span id="cartCount">0</span>
-    </button>
-  </div>
+  <p>
+    Quality fruit seedlings, grapes, berries, citrus,
+    herbs & spices
+  </p>
 
-  <div class="hero">
-    <h2>Grow something beautiful.</h2>
-    <p>Shop quality seedlings for your farm, garden and orchard.</p>
-  </div>
-
-  <div class="search-area">
-    <input
-      class="search"
-      id="search"
-      placeholder="🔎 Search seedlings..."
-      oninput="renderProducts()"
-    >
-  </div>
+  <input
+    id="search"
+    class="search"
+    type="search"
+    placeholder="Search seedlings, grapes, citrus, berries..."
+  >
 </header>
 
-<main>
+<main class="wrap">
 
-  <div class="categories">
-    <button class="category active" onclick="setCategory('All', this)">All</button>
-    <button class="category" onclick="setCategory('Fruit', this)">🍎 Fruit Plants</button>
-    <button class="category" onclick="setCategory('Grape', this)">🍇 Grapes</button>
-    <button class="category" onclick="setCategory('Ornamental', this)">🌸 Ornamental</button>
+  <div class="contact">
+    📞 Call & WhatsApp:
+
+    <a href="tel:+2347065301625">
+      07065301625
+    </a>
+
+    &nbsp; | &nbsp;
+
+    <a
+      href="https://wa.me/2347065301625"
+      target="_blank"
+    >
+      Chat on WhatsApp
+    </a>
   </div>
 
-  <section class="products" id="products"></section>
+  <div id="filters" class="filters"></div>
+
+  <div id="products" class="products"></div>
 
 </main>
 
 <footer>
-  <h3>The Apple Garden 🪴</h3>
-  <p style="margin-top:8px;">Quality seedlings for a greener future.</p>
-  <p style="margin-top:8px;">📍 Kaduna State, Nigeria</p>
+  <strong>The Apple Garden 🪴</strong>
+
+  <p>
+    Quality seedlings and plants for your garden and farm.
+  </p>
+
+  <p>
+    Call & WhatsApp: 07065301625
+  </p>
 </footer>
-
-<div class="cart-panel" id="cartPanel">
-  <div class="cart-box">
-
-    <div class="cart-head">
-      <h2>Your Cart</h2>
-      <button class="close" onclick="closeCart()">✕</button>
-    </div>
-
-    <div id="cartItems"></div>
-
-    <div class="total">
-      <span>Total</span>
-      <span id="cartTotal">₦0</span>
-    </div>
-
-    <div class="checkout">
-      <h3 style="margin-bottom:12px;">Customer Details</h3>
-
-      <input id="customerName" placeholder="Full name">
-      <input id="customerPhone" placeholder="Phone number">
-      <input id="customerAddress" placeholder="Delivery location">
-
-      <button class="whatsapp" onclick="orderWhatsApp()">
-        Order through WhatsApp
-      </button>
-    </div>
-
-  </div>
-</div>
 
 <script>
 
-const WHATSAPP_NUMBER = "2349132048135";
+const WHATSAPP_NUMBER = "2347065301625";
 
 const products = [
-  {
+    {
     id: 1,
-    name: "Apple Seedling",
+    name: "Apple",
     price: 13000,
     category: "Fruit",
     emoji: "🍎",
-    description: "Quality apple seedling suitable for orchard establishment."
+    description: "Quality apple seedling."
   },
 
   {
     id: 2,
-    name: "Grape Seedling",
-    price: 0,
-    category: "Grape",
-    emoji: "🍇",
-    description: "Healthy grape seedling. Contact us for current price."
+    name: "Big bucket Apple",
+    price: 40000,
+    category: "Fruit",
+    emoji: "🍎",
+    description: "Big bucket apple plant."
   },
 
   {
     id: 3,
-    name: "Fruit Plant",
-    price: 0,
+    name: "English pear",
+    price: 20000,
     category: "Fruit",
-    emoji: "🌱",
-    description: "Quality fruit plant. Contact us for available varieties."
+    emoji: "🍐",
+    description: "English pear seedling."
   },
 
   {
     id: 4,
-    name: "Ornamental Plant",
-    price: 0,
-    category: "Ornamental",
-    emoji: "🌸",
-    description: "Beautiful plants for gardens and landscaping."
+    name: "Hass avocado",
+    price: 8000,
+    category: "Fruit",
+    emoji: "🥑",
+    description: "Hass avocado seedling."
+  },
+
+  {
+    id: 5,
+    name: "Ethinger avocado",
+    price: 4000,
+    category: "Fruit",
+    emoji: "🥑",
+    description: "Ethinger avocado seedling."
+  },
+
+  {
+    id: 6,
+    name: "Plum",
+    price: 5000,
+    category: "Fruit",
+    emoji: "🟣",
+    description: "Plum seedling."
+  },
+
+  {
+    id: 7,
+    name: "English plum",
+    price: 35000,
+    category: "Fruit",
+    emoji: "🟣",
+    description: "English plum seedling."
+  },
+
+  {
+    id: 8,
+    name: "Peach",
+    price: 35000,
+    category: "Fruit",
+    emoji: "🍑",
+    description: "Peach seedling."
+  },
+
+  {
+    id: 9,
+    name: "Cherry guava",
+    price: 20000,
+    category: "Fruit",
+    emoji: "🍒",
+    description: "Cherry guava seedling."
+  },
+
+  {
+    id: 10,
+    name: "Olive tree",
+    price: 40000,
+    category: "Fruit",
+    emoji: "🫒",
+    description: "Olive tree seedling."
+  },
+
+  {
+    id: 11,
+    name: "Soursop",
+    price: 2000,
+    category: "Fruit",
+    emoji: "🍈",
+    description: "Soursop seedling."
+  },
+
+  {
+    id: 12,
+    name: "Sweet apple",
+    price: 3000,
+    category: "Fruit",
+    emoji: "🍎",
+    description: "Sweet apple seedling."
+  },
+
+  {
+    id: 13,
+    name: "Jackfruit",
+    price: 4000,
+    category: "Fruit",
+    emoji: "🌳",
+    description: "Jackfruit seedling."
+  },
+
+  {
+    id: 14,
+    name: "Breadfruit",
+    price: 3000,
+    category: "Fruit",
+    emoji: "🌳",
+    description: "Breadfruit seedling."
+  },
+
+  {
+    id: 15,
+    name: "Custard apple",
+    price: 3000,
+    category: "Fruit",
+    emoji: "🍏",
+    description: "Custard apple seedling."
+  },
+
+  {
+    id: 16,
+    name: "Pomegranate",
+    price: 3000,
+    category: "Fruit",
+    emoji: "❤️",
+    description: "Pomegranate seedling."
+  },
+
+  {
+    id: 17,
+    name: "Kiwi",
+    price: 10000,
+    category: "Fruit",
+    emoji: "🥝",
+    description: "Kiwi seedling."
+  },
+
+  {
+    id: 18,
+    name: "jumbo guava",
+    price: 2000,
+    category: "Fruit",
+    emoji: "🍐",
+    description: "Jumbo guava seedling."
+  },
+
+  {
+    id: 19,
+    name: "Purple magenta guava",
+    price: 5000,
+    category: "Fruit",
+    emoji: "🟣",
+    description: "Purple magenta guava seedling."
+  },
+
+  {
+    id: 20,
+    name: "Gal banana",
+    price: 3000,
+    category: "Fruit",
+    emoji: "🍌",
+    description: "Gal banana plant."
+  },
+
+  {
+    id: 21,
+    name: "Plantain",
+    price: 3000,
+    category: "Fruit",
+    emoji: "🍌",
+    description: "Plantain plant."
+  },
+
+  {
+    id: 22,
+    name: "majool Dates farm",
+    price: 3000,
+    category: "Fruit",
+    emoji: "🌴",
+    description: "Majool date plant."
+  },
+
+  {
+    id: 23,
+    name: "Dwarf papaya",
+    price: 3000,
+    category: "Fruit",
+    emoji: "🥭",
+    description: "Dwarf papaya plant."
+  },
+
+  {
+    id: 24,
+    name: "Star fruit",
+    price: 3000,
+    category: "Fruit",
+    emoji: "⭐",
+    description: "Star fruit seedling."
+  },
+
+  {
+    id: 25,
+    name: "Passion fruit",
+    price: 2000,
+    category: "Fruit",
+    emoji: "🟣",
+    description: "Passion fruit plant."
+  },
+
+  {
+    id: 26,
+    name: "Rose apple",
+    price: 13000,
+    category: "Fruit",
+    emoji: "🌹",
+    description: "Rose apple seedling."
+  },
+
+  {
+    id: 27,
+    name: "Dragon fruit",
+    price: 10000,
+    category: "Fruit",
+    emoji: "🐉",
+    description: "Dragon fruit plant."
+  },
+
+  {
+    id: 28,
+    name: "Dwarf coconut",
+    price: 7000,
+    category: "Fruit",
+    emoji: "🥥",
+    description: "Dwarf coconut plant."
+  },
+
+  {
+    id: 29,
+    name: "Big coconut",
+    price: 15000,
+    category: "Fruit",
+    emoji: "🥥",
+    description: "Big coconut plant."
+  },
+
+  {
+    id: 30,
+    name: "Palm oil tree",
+    price: 2000,
+    category: "Fruit",
+    emoji: "🌴",
+    description: "Palm oil tree seedling."
+  },
+
+  {
+    id: 31,
+    name: "Moringa",
+    price: 1000,
+    category: "Fruit",
+    emoji: "🌿",
+    description: "Moringa plant."
+  },
+
+  {
+    id: 32,
+    name: "Brazilian cashew",
+    price: 2000,
+    category: "Fruit",
+    emoji: "🌳",
+    description: "Brazilian cashew seedling."
+  },
+    {
+    id: 33,
+    name: "Tengarine",
+    price: 2000,
+    category: "Citrus",
+    emoji: "🍊",
+    description: "Tengarine citrus seedling."
+  },
+
+  {
+    id: 34,
+    name: "Tangelo",
+    price: 2000,
+    category: "Citrus",
+    emoji: "🍊",
+    description: "Tangelo citrus seedling."
+  },
+
+  {
+    id: 35,
+    name: "Mandarine",
+    price: 10000,
+    category: "Citrus",
+    emoji: "🍊",
+    description: "Mandarine seedling."
+  },
+
+  {
+    id: 36,
+    name: "Washington",
+    price: 2000,
+    category: "Citrus",
+    emoji: "🍊",
+    description: "Washington orange seedling."
+  },
+
+  {
+    id: 37,
+    name: "Washington naval",
+    price: 1500,
+    category: "Citrus",
+    emoji: "🍊",
+    description: "Washington navel orange seedling."
+  },
+
+  {
+    id: 38,
+    name: "Grape fruit",
+    price: 3000,
+    category: "Citrus",
+    emoji: "🍊",
+    description: "Grapefruit seedling."
+  },
+
+  {
+    id: 39,
+    name: "Shardok",
+    price: 2000,
+    category: "Citrus",
+    emoji: "🍊",
+    description: "Shardok citrus seedling."
+  },
+
+  {
+    id: 40,
+    name: "Lemon",
+    price: 1500,
+    category: "Citrus",
+    emoji: "🍋",
+    description: "Lemon seedling."
+  },
+
+  {
+    id: 41,
+    name: "Indian lemon",
+    price: 2000,
+    category: "Citrus",
+    emoji: "🍋",
+    description: "Indian lemon seedling."
+  },
+
+  {
+    id: 42,
+    name: "English lemon",
+    price: 3000,
+    category: "Citrus",
+    emoji: "🍋",
+    description: "English lemon seedling."
+  },
+
+  {
+    id: 43,
+    name: "Verigated lime",
+    price: 3000,
+    category: "Citrus",
+    emoji: "🍋",
+    description: "Variegated lime seedling."
+  },
+
+  {
+    id: 44,
+    name: "Kamquat",
+    price: 20000,
+    category: "Citrus",
+    emoji: "🍊",
+    description: "Kumquat seedling."
+  },
+
+  {
+    id: 45,
+    name: "Calamondi orange",
+    price: 20000,
+    category: "Citrus",
+    emoji: "🍊",
+    description: "Calamondin orange plant."
+  },
+
+  {
+    id: 46,
+    name: "Blood Orange",
+    price: 25000,
+    category: "Citrus",
+    emoji: "🍊",
+    description: "Blood orange seedling."
+  },
+
+  {
+    id: 47,
+    name: "Pixie orange",
+    price: 20000,
+    category: "Citrus",
+    emoji: "🍊",
+    description: "Pixie orange seedling."
+  },
+    // BERRIES 🫐
+
+  {
+    id: 48,
+    name: "Blackberry",
+    price: 4000,
+    category: "Berries",
+    emoji: "🫐",
+    description: "Blackberry plant."
+  },
+
+  {
+    id: 49,
+    name: "Raspberry",
+    price: 6000,
+    category: "Berries",
+    emoji: "🍓",
+    description: "Raspberry plant."
+  },
+
+  {
+    id: 50,
+    name: "Golden raspberry",
+    price: 6000,
+    category: "Berries",
+    emoji: "🍓",
+    description: "Golden raspberry plant."
+  },
+
+  {
+    id: 51,
+    name: "Mulberry",
+    price: 2000,
+    category: "Berries",
+    emoji: "🫐",
+    description: "Mulberry plant."
+  },
+
+  {
+    id: 52,
+    name: "Gooseberry",
+    price: 10000,
+    category: "Berries",
+    emoji: "🟢",
+    description: "Gooseberry plant."
+  },
+
+  {
+    id: 53,
+    name: "Blueberry",
+    price: 100000,
+    category: "Berries",
+    emoji: "🫐",
+    description: "Blueberry plant."
+  },
+
+
+  // GRAPE SEEDLINGS 🍇
+
+  {
+    id: 54,
+    name: "Purple",
+    price: 2000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Purple grape seedling."
+  },
+
+  {
+    id: 55,
+    name: "Black Hamburg",
+    price: 5000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Black Hamburg grape seedling."
+  },
+
+  {
+    id: 56,
+    name: "Sweet safaya",
+    price: 15000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Sweet Safaya grape seedling."
+  },
+
+  {
+    id: 57,
+    name: "Black currant",
+    price: 1500,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Black currant plant."
+  },
+
+  {
+    id: 58,
+    name: "Red globe",
+    price: 10000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Red Globe grape seedling."
+  },
+
+  {
+    id: 59,
+    name: "Enob shy",
+    price: 4000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Enob Shy grape variety."
+  },
+
+  {
+    id: 60,
+    name: "Muscat",
+    price: 5000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Muscat grape seedling."
+  },
+
+  {
+    id: 61,
+    name: "Lady finger",
+    price: 5000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Lady Finger grape seedling."
+  },
+
+  {
+    id: 62,
+    name: "Creamsun seedless",
+    price: 6000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Creamsun Seedless grape seedling."
+  },
+
+  {
+    id: 63,
+    name: "Thompson seedless",
+    price: 8000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Thompson Seedless grape seedling."
+  },
+
+  {
+    id: 64,
+    name: "Alphonso lavalee",
+    price: 8000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Alphonso Lavalee grape seedling."
+  },
+    // BERRIES 🫐
+
+  {
+    id: 48,
+    name: "Blackberry",
+    price: 4000,
+    category: "Berries",
+    emoji: "🫐",
+    description: "Blackberry plant."
+  },
+
+  {
+    id: 49,
+    name: "Raspberry",
+    price: 6000,
+    category: "Berries",
+    emoji: "🍓",
+    description: "Raspberry plant."
+  },
+
+  {
+    id: 50,
+    name: "Golden raspberry",
+    price: 6000,
+    category: "Berries",
+    emoji: "🍓",
+    description: "Golden raspberry plant."
+  },
+
+  {
+    id: 51,
+    name: "Mulberry",
+    price: 2000,
+    category: "Berries",
+    emoji: "🫐",
+    description: "Mulberry plant."
+  },
+
+  {
+    id: 52,
+    name: "Gooseberry",
+    price: 10000,
+    category: "Berries",
+    emoji: "🟢",
+    description: "Gooseberry plant."
+  },
+
+  {
+    id: 53,
+    name: "Blueberry",
+    price: 100000,
+    category: "Berries",
+    emoji: "🫐",
+    description: "Blueberry plant."
+  },
+
+
+  // GRAPE SEEDLINGS 🍇
+
+  {
+    id: 54,
+    name: "Purple",
+    price: 2000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Purple grape seedling."
+  },
+
+  {
+    id: 55,
+    name: "Black Hamburg",
+    price: 5000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Black Hamburg grape seedling."
+  },
+
+  {
+    id: 56,
+    name: "Sweet safaya",
+    price: 15000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Sweet Safaya grape seedling."
+  },
+
+  {
+    id: 57,
+    name: "Black currant",
+    price: 1500,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Black currant plant."
+  },
+
+  {
+    id: 58,
+    name: "Red globe",
+    price: 10000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Red Globe grape seedling."
+  },
+
+  {
+    id: 59,
+    name: "Enob shy",
+    price: 4000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Enob Shy grape variety."
+  },
+
+  {
+    id: 60,
+    name: "Muscat",
+    price: 5000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Muscat grape seedling."
+  },
+
+  {
+    id: 61,
+    name: "Lady finger",
+    price: 5000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Lady Finger grape seedling."
+  },
+
+  {
+    id: 62,
+    name: "Creamsun seedless",
+    price: 6000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Creamsun Seedless grape seedling."
+  },
+
+  {
+    id: 63,
+    name: "Thompson seedless",
+    price: 8000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Thompson Seedless grape seedling."
+  },
+
+  {
+    id: 64,
+    name: "Alphonso lavalee",
+    price: 8000,
+    category: "Grape",
+    emoji: "🍇",
+    description: "Alphonso Lavalee grape seedling."
+  },
+    // SPICES 🌿
+
+  {
+    id: 77,
+    name: "Cuban oregano",
+    price: 2500,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Cuban oregano plant."
+  },
+
+  {
+    id: 78,
+    name: "Greek Oregano",
+    price: 2500,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Greek oregano plant."
+  },
+
+  {
+    id: 79,
+    name: "Parsley",
+    price: 2500,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Parsley plant."
+  },
+
+  {
+    id: 80,
+    name: "Sage",
+    price: 3000,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Sage plant."
+  },
+
+  {
+    id: 81,
+    name: "Coriander",
+    price: 3000,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Coriander plant."
+  },
+
+  {
+    id: 82,
+    name: "Malabar Spinach",
+    price: 2000,
+    category: "Spices",
+    emoji: "🥬",
+    description: "Malabar spinach plant."
+  },
+
+  {
+    id: 83,
+    name: "Rose Mary",
+    price: 1500,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Rosemary plant."
+  },
+
+  {
+    id: 84,
+    name: "Thyme",
+    price: 3000,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Thyme plant."
+  },
+
+  {
+    id: 85,
+    name: "Lavender",
+    price: 3000,
+    category: "Spices",
+    emoji: "💜",
+    description: "Lavender plant."
+  },
+
+  {
+    id: 86,
+    name: "Golden theme",
+    price: 3000,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Golden theme plant."
+  },
+
+  {
+    id: 87,
+    name: "Marjoram",
+    price: 2000,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Marjoram plant."
+  },
+
+  {
+    id: 88,
+    name: "Stevia",
+    price: 3000,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Stevia plant."
+  },
+
+  {
+    id: 89,
+    name: "Lemon bam",
+    price: 2000,
+    category: "Spices",
+    emoji: "🍋",
+    description: "Lemon bam plant."
+  },
+
+  {
+    id: 90,
+    name: "Beetroot",
+    price: 3000,
+    category: "Spices",
+    emoji: "🫜",
+    description: "Beetroot plant."
+  },
+
+  {
+    id: 91,
+    name: "Kale",
+    price: 2000,
+    category: "Spices",
+    emoji: "🥬",
+    description: "Kale plant."
+  },
+
+  {
+    id: 92,
+    name: "Basil",
+    price: 2000,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Basil plant."
+  },
+
+  {
+    id: 93,
+    name: "Dill",
+    price: 2500,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Dill plant."
+  },
+
+  {
+    id: 94,
+    name: "Indian curry",
+    price: 3000,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Indian curry plant."
+  },
+
+  {
+    id: 95,
+    name: "Celery",
+    price: 2000,
+    category: "Spices",
+    emoji: "🌿",
+    description: "Celery plant."
   }
-];
 
-let cart = [];
-let selectedCategory = "All";
-
-function money(value) {
-  if (value === 0) return "Contact for price";
-  return "₦" + value.toLocaleString("en-NG");
-}
-
-function setCategory(category, button) {
-  selectedCategory = category;
-
-  document.querySelectorAll(".category").forEach(b => {
-    b.classList.remove("active");
-  });
-
-  button.classList.add("active");
-  renderProducts();
-}
-
-function renderProducts() {
-
-  const search = document
-    .getElementById("search")
-    .value
-    .toLowerCase();
-
-  const list = products.filter(product => {
-
-    const categoryMatch =
-      selectedCategory === "All" ||
-      product.category === selectedCategory;
-
-    const searchMatch =
-      product.name.toLowerCase().includes(search) ||
-      product.description.toLowerCase().includes(search);
-
-    return categoryMatch && searchMatch;
-  });
-
-  const container = document.getElementById("products");
-
-  if (!list.length) {
-    container.innerHTML =
-      '<div class="empty">No seedlings found.</div>';
-    return;
-  }
-
-  container.innerHTML = list.map(product => `
-
-    <article class="product">
-
-      <div class="product-image">
-        ${product.emoji}
-      </div>
-
-      <div class="product-info">
-
-        <h3>${product.name}</h3>
-
-        <p class="description">
-          ${product.description}
-        </p>
-
-        <div class="price">
-          ${money(product.price)}
-        </div>
-
-        <button
-          class="add"
-          onclick="addToCart(${product.id})"
-        >
-          Add to Cart
-        </button>
-
-      </div>
-
-    </article>
-
-  `).join("");
-}
-
-function addToCart(id) {
-
-  const product = products.find(p => p.id === id);
-
-  const existing = cart.find(item => item.id === id);
-
-  if (existing) {
-    existing.quantity++;
-  } else {
-    cart.push({
-      ...product,
-      quantity: 1
-    });
-  }
-
-  updateCart();
-  openCart();
-}
-
-function changeQuantity(id, amount) {
-
-  const item = cart.find(p => p.id === id);
-
-  if (!item) return;
-
-  item.quantity += amount;
-
-  if (item.quantity <= 0) {
-    cart = cart.filter(p => p.id !== id);
-  }
-
-  updateCart();
-}
-
-function updateCart() {
-
-  const count = cart.reduce(
-    (sum, item) => sum + item.quantity,
-    0
-  );
-
-  document.getElementById("cartCount").textContent = count;
-
-  const container = document.getElementById("cartItems");
-
-  if (!cart.length) {
-    container.innerHTML =
-      '<p style="text-align:center;padding:30px;">Your cart is empty.</p>';
-
-    document.getElementById("cartTotal").textContent = "₦0";
-    return;
-  }
-
-  container.innerHTML = cart.map(item => `
-
-    <div class="cart-item">
-
-      <div>
-        <strong>${item.emoji} ${item.name}</strong>
-        <div style="color:#667066;margin-top:4px;">
-          ${item.price ? money(item.price) : "Price to be confirmed"}
-        </div>
-      </div>
-
-      <div class="qty">
-        <button onclick="changeQuantity(${item.id}, -1)">−</button>
-        <strong style="padding:0 8px;">${item.quantity}</strong>
-        <button onclick="changeQuantity(${item.id}, 1)">+</button>
-      </div>
-
-    </div>
-
-  `).join("");
-
-  const total = cart.reduce(
-    (sum, item) => sum + (item.price * item.quantity),
-    0
-  );
-
-  const hasPriceToConfirm = cart.some(item => item.price === 0);
-
-  document.getElementById("cartTotal").textContent =
-    hasPriceToConfirm
-      ? money(total) + " + items to confirm"
-      : money(total);
-}
-
-function openCart() {
-  document.getElementById("cartPanel").classList.add("show");
-}
-
-function closeCart() {
-  document.getElementById("cartPanel").classList.remove("show");
-}
-
-function orderWhatsApp() {
-
-  if (!cart.length) {
-    alert("Your cart is empty.");
-    return;
-  }
-
-  const name =
-    document.getElementById("customerName").value.trim();
-
-  const phone =
-    document.getElementById("customerPhone").value.trim();
-
-  const address =
-    document.getElementById("customerAddress").value.trim();
-
-  if (!name || !phone || !address) {
-    alert("Please enter your name, phone number and delivery location.");
-    return;
-  }
-
-  let message =
-    "Hello The Apple Garden 🌱%0A%0A" +
-    "I want to place an order.%0A%0A" +
-    "Customer: " + encodeURIComponent(name) + "%0A" +
-    "Phone: " + encodeURIComponent(phone) + "%0A" +
-    "Location: " + encodeURIComponent(address) + "%0A%0A" +
-    "ORDER:%0A";
-
-  cart.forEach(item => {
-
-    message +=
-      encodeURIComponent(
-        item.name +
-        " × " +
-        item.quantity +
-        " — " +
-        (item.price ? money(item.price) : "Price to confirm")
-      ) +
-      "%0A";
-
-  });
-
-  const total = cart.reduce(
-    (sum, item) => sum + (item.price * item.quantity),
-    0
-  );
-
-  message +=
-    "%0ATotal shown: " +
-    encodeURIComponent(money(total));
-
-  window.open(
-    "https://wa.me/" +
-    WHATSAPP_NUMBER +
-    "?text=" +
-    message,
-    "_blank"
-  );
-}
-
-renderProducts();
-updateCart();
-
-</script>
+];</script>
 
 </body>
 </html>
